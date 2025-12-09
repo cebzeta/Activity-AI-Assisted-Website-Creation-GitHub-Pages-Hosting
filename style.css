@@ -1,0 +1,131 @@
+/* Base colors for light/dark mode */
+:root {
+    --highlight-color: #ff2d55; /* Red-pink highlight */
+    --light-bg: #ffffff;
+    --light-text: #111111;
+    --dark-bg: #111111;
+    --dark-text: #ffffff;
+    --secondary-light: #f2f2f2;
+    --secondary-dark: #1a1a1a;
+}
+
+/* Detect user preference for dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: var(--dark-bg);
+        --text-color: var(--dark-text);
+        --secondary-color: var(--secondary-dark);
+    }
+}
+
+/* Default light mode */
+@media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
+    :root {
+        --bg-color: var(--light-bg);
+        --text-color: var(--light-text);
+        --secondary-color: var(--secondary-light);
+    }
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: var(--secondary-color);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: var(--highlight-color);
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    background-color: var(--secondary-color);
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--highlight-color);
+}
+
+section {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+h2 {
+    color: var(--highlight-color);
+    margin-bottom: 1rem;
+}
+
+.manhwa-card {
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.manhwa-card:hover {
+    transform: translateY(-5px);
+}
+
+.manhwa-card img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.manhwa-card h3 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.manhwa-card p {
+    margin: 0.5rem 0;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: var(--secondary-color);
+    margin-top: 2rem;
+}
+
+footer a {
+    color: var(--highlight-color);
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
